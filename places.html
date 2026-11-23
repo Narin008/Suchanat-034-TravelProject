@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ที่เที่ยว | เที่ยวบ้านเรา</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <p class="site-name">
+        <a href="index.html">เที่ยวบ้านเรา</a>
+        <span class="site-subtitle">จ.ประจวบคีรีขันธ์</span>
+      </p>
+      <nav aria-label="เมนูหลัก">
+        <ul>
+          <li><a href="index.html">หน้าแรก</a></li>
+          <li><a href="places.html" class="active">ที่เที่ยว</a></li>
+          <li><a href="food.html">อาหาร</a></li>
+          <li><a href="plan.html">วางแผนเที่ยว</a></li>
+          <li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+          <li><a href="login.html" class="nav-login" id="navLoginLink">เข้าสู่ระบบ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1>แหล่งท่องเที่ยวแนะนำ</h1>
+      <p class="hero-lead">รวมพิกัดท่องเที่ยวสำคัญของอำเภอเมืองประจวบคีรีขันธ์ ครบทั้งจุดชมวิวเมืองสามอ่าว สิ่งศักดิ์สิทธิ์คู่เมือง ชายหาดน้ำใส ตลาดชุมชน และแหล่งเรียนรู้ทางวิทยาศาสตร์</p>
+      <div class="filter-bar" style="margin-bottom: 0; margin-top: 16px;">
+        <button type="button" class="filter-btn active" onclick="filterPlaces('all', this)">ทั้งหมด (6 แห่ง)</button>
+        <button type="button" class="filter-btn" onclick="filterPlaces('view', this)">จุดชมวิว &amp; ชายหาด</button>
+        <button type="button" class="filter-btn" onclick="filterPlaces('sacred', this)">ไหว้พระ &amp; คู่บ้านคู่เมือง</button>
+        <button type="button" class="filter-btn" onclick="filterPlaces('community', this)">ตลาดชุมชน &amp; แหล่งเรียนรู้</button>
+      </div>
+    </section>
+
+    <section class="places-grid" aria-label="รายการแหล่งท่องเที่ยว">
+      <!-- 1. เขาช่องกระจก -->
+      <article class="place-card" data-type="sacred view">
+        <div class="place-img-wrap">
+          <span class="place-tag">จุดชมวิว 3 อ่าว &amp; ไหว้พระ</span>
+          <img src="images/Kaow.jpg" alt="เขาช่องกระจก วัดธรรมิการามวรวิหาร">
+        </div>
+        <div class="place-body">
+          <h2>1. เขาช่องกระจก (วัดธรรมิการามวรวิหาร)</h2>
+          <p>สัญลักษณ์สำคัญใจกลางเมืองประจวบคีรีขันธ์ ตั้งอยู่ด้านหลังศาลากลางจังหวัด เป็นภูเขาสูงประมาณ 245 เมตรจากระดับน้ำทะเล ด้านทิศเหนือมีโพรงหินทะลุโปร่งมองดูคล้ายกรอบกระจก</p>
+          <ul class="place-highlights">
+            <li>เดินขึ้นบันไดคอนกรีต <strong>396 ขั้น</strong> สู่ยอดเขาเพื่อสักการะรอยพระพุทธบาทจำลอง พระบรมสารีริกธาตุ และต้นพระศรีมหาโพธิ์ (ทรงปลูกเมื่อ 12 มิ.ย. 2501)</li>
+            <li>ชมทิวทัศน์ <strong>360 องศา</strong> เห็นโค้งน้ำสำคัญครบทั้ง 3 อ่าว ได้แก่ อ่าวประจวบ อ่าวมะนาว และอ่าวน้อย</li>
+            <li>จุดชมแสงแรกยามเช้าบริเวณถ้ำเทวาสถิตย์สวยงามโดดเด่น</li>
+          </ul>
+          <div class="place-meta">
+            <div><strong>เวลาเปิดทำการ:</strong> ทุกวัน 05.00 – 20.00 น.</div>
+            <div><strong>ค่าเข้าชม:</strong> ไม่เสียค่าเข้าชม</div>
+            <div><strong>ที่ตั้ง:</strong> ต.ประจวบคีรีขันธ์ อ.เมือง จ.ประจวบคีรีขันธ์</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. ศาลหลักเมืองประจวบคีรีขันธ์ -->
+      <article class="place-card" data-type="sacred">
+        <div class="place-img-wrap">
+          <span class="place-tag">สิ่งศักดิ์สิทธิ์คู่เมือง</span>
+          <img src="images/lukmuang.jpg" alt="ศาลหลักเมืองประจวบคีรีขันธ์">
+        </div>
+        <div class="place-body">
+          <h2>2. ศาลหลักเมืองประจวบคีรีขันธ์</h2>
+          <p>ศูนย์รวมจิตใจและความเป็นสิริมงคลของชาวประจวบคีรีขันธ์ โดดเด่นด้วยสถาปัตยกรรมอาคารทรงจตุรมุขยอดปรางค์ 9 ชั้น ผสมผสานศิลปะแบบลพบุรีและศิลปะไทยอย่างวิจิตรงดงาม</p>
+          <ul class="place-highlights">
+            <li>ประดิษฐานองค์หลักเมืองนาม <strong>"จตุโชค"</strong> แกะสลักจากไม้ตะเคียนขนาดใหญ่จากอำเภอกุยบุรี สูง 2.74 เมตร</li>
+            <li>ส่วนยอดแกะสลักเป็นศิลปะศรีวิชัย 4 เศียร 4 พักตร์ ลงรักปิดทองประดับอัญมณี</li>
+            <li>เปิดอย่างเป็นทางการเมื่อวันที่ 20 สิงหาคม พ.ศ. 2537 อยู่ใกล้เขาช่องกระจก เดินทางเชื่อมกันสะดวก</li>
+          </ul>
+          <div class="place-meta">
+            <div><strong>เวลาเปิดทำการ:</strong> ทุกวัน 08.00 – 19.00 น.</div>
+            <div><strong>ค่าเข้าชม:</strong> ไม่เสียค่าเข้าชม</div>
+            <div><strong>ที่ตั้ง:</strong> ถนนสละชีพ (ตรงข้ามศาลากลางจังหวัด) อ.เมืองฯ</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. อ่าวมะนาว -->
+      <article class="place-card" data-type="view">
+        <div class="place-img-wrap">
+          <span class="place-tag">ชายหาดพักผ่อนยอดนิยม</span>
+          <img src="images/aomanow.jpg" alt="อ่าวมะนาว กองบิน 5">
+        </div>
+        <div class="place-body">
+          <h2>3. อ่าวมะนาว (กองบิน 5)</h2>
+          <p>ชายหาดโค้งรูปครึ่งวงกลมที่สะอาดและเงียบสงบ อยู่ในความดูแลของกองบิน 5 กองทัพอากาศ น้ำทะเลใส หาดทรายลาดตื้นคลื่นไม่แรง เหมาะสำหรับการเดินเล่นและพักผ่อนทั้งครอบครัว</p>
+          <ul class="place-highlights">
+            <li>ถ่ายภาพเช็กอินป้ายแลนด์มาร์ก <strong>"We Love อ่าวมะนาว"</strong> รูปโลมาคู่ริมทะเล โดยมีเขาล้อมหมวกเป็นฉากหลัง</li>
+            <li>มีบริการเตียงผ้าใบ ร้านค้าสวัสดิการอาหารทะเลสด ห้องอาบน้ำจืด และเส้นทางปั่นจักรยานเลียบอ่าว</li>
+            <li>ใกล้จุดอนุสาวรีย์วีรชน 8 ธันวาคม 2484 แหล่งเรียนรู้ประวัติศาสตร์สมัยสงครามโลกครั้งที่ 2</li>
+          </ul>
+          <div class="place-meta">
+            <div><strong>เวลาเปิดทำการ:</strong> ทุกวัน 06.00 – 18.00 น.</div>
+            <div><strong>ข้อปฏิบัติ:</strong> แสดงบัตรประชาชนลงทะเบียนก่อนเข้าเขตทหาร</div>
+            <div><strong>ที่ตั้ง:</strong> เขตกองบิน 5 ต.เกาะหลัก อ.เมืองฯ</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. เขาล้อมหมวก -->
+      <article class="place-card" data-type="view">
+        <div class="place-img-wrap">
+          <span class="place-tag">จุดชมวิวผจญภัย 360°</span>
+          <img src="images/KLM.jpg" alt="จุดชมวิวเขาล้อมหมวก กองบิน 5">
+        </div>
+        <div class="place-body">
+          <h2>4. จุดชมวิวเขาล้อมหมวก</h2>
+          <p>ภูเขาหินปูนสูงประมาณ 902 ฟุต (ราว 280 เมตร) ตั้งอยู่กั้นกลางระหว่างอ่าวประจวบและอ่าวมะนาว เป็นจุดชมวิวมุมสูงที่สวยงามติดอันดับต้นๆ ของภาคใต้ตอนบน</p>
+          <ul class="place-highlights">
+            <li>กิจกรรมพิชิตยอดเขา: เดินขึ้นบันได 496 ขั้น ต่อด้วยเส้นทางไต่เชือกขึ้นสู่ยอดเขา ชมสันทรายและโค้งทะเลสองอ่าว</li>
+            <li>บริเวณเชิงเขาสามารถแวะชมและให้อาหาร <strong>ค่างแว่นถิ่นใต้</strong> ที่มีนิสัยเชื่องและน่ารักได้ทุกวัน</li>
+            <li>แนะนำสวมรองเท้าผ้าใบและพกถุงมือหากต้องการร่วมกิจกรรมขึ้นยอดเขา</li>
+          </ul>
+          <div class="place-meta">
+            <div><strong>เวลาขึ้นยอดเขา:</strong> เปิดเฉพาะวันหยุดยาวต่อเนื่อง (ลงทะเบียน 06.00 – 09.00 น.)</div>
+            <div><strong>บริเวณเชิงเขา:</strong> เข้าชมค่างแว่นและไหว้ศาลเจ้าพ่อได้ทุกวัน 06.00 – 18.00 น.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. สะพานสราญวิถี & ตลาดชุมชนถนนคนเดิน -->
+      <article class="place-card" data-type="community view">
+        <div class="place-img-wrap">
+          <span class="place-tag">แลนด์มาร์ก &amp; ตลาดชุมชน</span>
+          <img src="images/sapanpla.jpg" alt="สะพานสราญวิถี อ่าวประจวบ">
+        </div>
+        <div class="place-body">
+          <h2>5. สะพานสราญวิถี &amp; ตลาดชุมชนริมอ่าว</h2>
+          <p>สะพานปูนสีแดงตัดขาวที่ปรับปรุงจากสะพานปลาเดิม ทอดยาวลงไปในทะเลอ่าวประจวบ ออกแบบสถาปัตยกรรมและเสาไฟให้เข้าชุดกับสถานีรถไฟประจวบคีรีขันธ์อย่างคลาสสิก</p>
+          <ul class="place-highlights">
+            <li>จุดชมพระอาทิตย์ขึ้นยามเช้าที่งดงามที่สุดแห่งหนึ่งของตัวเมือง และจุดรับลมทะเลยามเย็น</li>
+            <li>ช่วงเช้าใกล้เคียงมี <strong>ตลาดสดเทศบาล</strong> ให้เดินสัมผัสวิถีชุมชน ส่วนเย็นวันศุกร์–เสาร์จะมี <strong>ถนนคนเดินประจวบคีรีขันธ์</strong> เรียงรายด้วยร้านอาหารและสินค้าท้องถิ่น</li>
+          </ul>
+          <div class="place-meta">
+            <div><strong>เวลาเปิดทำการ:</strong> ตัวสะพานเปิดตลอดวัน (ถนนคนเดิน ศุกร์–เสาร์ 16.30 – 21.00 น.)</div>
+            <div><strong>ค่าเข้าชม:</strong> ไม่เสียค่าเข้าชม</div>
+            <div><strong>ที่ตั้ง:</strong> ถนนชายทะเล อ่าวประจวบ ต.ประจวบคีรีขันธ์</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. อุทยานวิทยาศาสตร์พระจอมเกล้า ณ หว้ากอ -->
+      <article class="place-card" data-type="community">
+        <div class="place-img-wrap">
+          <span class="place-tag">แหล่งเรียนรู้ &amp; อควาเรียม</span>
+          <img src="images/wahko.jpg" alt="อุทยานวิทยาศาสตร์พระจอมเกล้า ณ หว้ากอ">
+        </div>
+        <div class="place-body">
+          <h2>6. อุทยานวิทยาศาสตร์พระจอมเกล้า ณ หว้ากอ</h2>
+          <p>สถานที่สำคัญทางประวัติศาสตร์วิทยาศาสตร์ไทย ซึ่งพระบาทสมเด็จพระจอมเกล้าเจ้าอยู่หัว (รัชกาลที่ 4) ทรงคำนวณและเสด็จฯ ทอดพระเนตรสุริยุปราคาเต็มดวงเมื่อวันที่ 18 สิงหาคม พ.ศ. 2411</p>
+          <ul class="place-highlights">
+            <li>สักการะพระบรมราชานุสาวรีย์ รัชกาลที่ 4 และชมนิทรรศการดาราศาสตร์ อวกาศ และหอดูดาว</li>
+            <li>ตื่นตากับ <strong>พิพิธภัณฑ์สัตว์น้ำหว้ากอ</strong> อุโมงค์ปลาน้ำเค็ม–น้ำจืด และรอบแสดงดำน้ำให้อาหารปลา (11.00 น. และ 14.00 น.)</li>
+            <li>พื้นที่ร่มรื่นติดชายทะเลหว้ากอ ห่างจากตัวเมืองประจวบฯ เพียงประมาณ 12 กิโลเมตร</li>
+          </ul>
+          <div class="place-meta">
+            <div><strong>เวลาเปิดทำการ:</strong> ทุกวัน 09.00 – 16.00 น. (ไม่เว้นวันหยุดราชการ)</div>
+            <div><strong>ค่าเข้าอควาเรียม:</strong> ผู้ใหญ่ 50 บาท / เด็ก 30 บาท (ผู้สูงอายุ 60 ปีขึ้นไปฟรี)</div>
+            <div><strong>ที่ตั้ง:</strong> ต.คลองวาฬ อ.เมือง จ.ประจวบคีรีขันธ์</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>แวะเดินตลาดชุมชนและชิมของอร่อยต่อได้ที่ไหน?</h2>
+      <p style="margin-bottom: 14px;">หลังจากชมวิวทะเลและไหว้สิ่งศักดิ์สิทธิ์แล้ว อย่าลืมแวะเดินชมร้านค้าในตลาดเช้าเทศบาลเมืองประจวบฯ ตลาดคลองวาฬ และร้านของฝากจากคนในพื้นที่</p>
+      <div class="cta-bar" style="justify-content: flex-start; margin: 0;">
+        <a class="button" href="plan.html">จัดแผนเที่ยวหนึ่งวัน</a>
+        <a class="button button-outline" href="food.html">ดูอาหารและของฝากชุมชน</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>034 สุชานาถ ยังกิจการ | ใบงานฝึกปฏิบัติวิชาการสร้างเว็บไซต์ทางธุรกิจ</p>
+    <p class="footer-sub">เว็บไซต์ส่งเสริมการท่องเที่ยวชุมชน "เที่ยวบ้านเราในหนึ่งวัน" จังหวัดประจวบคีรีขันธ์</p>
+  </footer>
+
+  <script>
+    function filterPlaces(type, btn) {
+      const cards = document.querySelectorAll(".place-card");
+      const btns = document.querySelectorAll(".filter-btn");
+      btns.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+
+      cards.forEach(function (card) {
+        const cardTypes = card.getAttribute("data-type");
+        if (type === "all" || cardTypes.indexOf(type) !== -1) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    (function () {
+      try {
+        const loggedUser = localStorage.getItem("travelCurrentUser_034");
+        const navLink = document.getElementById("navLoginLink");
+        if (loggedUser && navLink) {
+          navLink.textContent = "บัญชี: " + loggedUser;
+        }
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>

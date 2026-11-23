@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เข้าสู่ระบบ | เที่ยวบ้านเรา</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <p class="site-name">
+        <a href="index.html">เที่ยวบ้านเรา</a>
+        <span class="site-subtitle">จ.ประจวบคีรีขันธ์</span>
+      </p>
+      <nav aria-label="เมนูหลัก">
+        <ul>
+          <li><a href="index.html">หน้าแรก</a></li>
+          <li><a href="places.html">ที่เที่ยว</a></li>
+          <li><a href="food.html">อาหาร</a></li>
+          <li><a href="plan.html">วางแผนเที่ยว</a></li>
+          <li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+          <li><a href="login.html" class="nav-login active" id="navLoginLink">เข้าสู่ระบบ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" style="padding: 20px 22px; margin-bottom: 22px;">
+      <h1>เข้าสู่ระบบสมาชิก</h1>
+      <p class="hero-lead" style="margin-bottom: 0;">เข้าสู่ระบบเพื่อจัดการทริปเที่ยวบ้านเรา บันทึกสถานที่ถูกใจ และติดตามกิจกรรมท่องเที่ยวชุมชนจังหวัดประจวบคีรีขันธ์</p>
+    </section>
+
+    <section class="login-layout" aria-label="แบบฟอร์มเข้าสู่ระบบ">
+      <!-- ฝั่งซ้าย: แบนเนอร์ต้อนรับ -->
+      <div class="login-banner">
+        <div>
+          <img src="images/pic1.png" alt="เที่ยวบ้านเราในหนึ่งวัน จังหวัดประจวบคีรีขันธ์">
+          <h2>ยินดีต้อนรับสู่ "เที่ยวบ้านเรา"</h2>
+          <p>ร่วมเป็นส่วนหนึ่งของการท่องเที่ยวเชิงอนุรักษ์และสนับสนุนร้านค้าชุมชนเมืองสามอ่าว จังหวัดประจวบคีรีขันธ์</p>
+          <ul class="login-perks">
+            <li>วางแผนเส้นทางท่องเที่ยว 1 วันได้สะดวกรวดเร็ว</li>
+            <li>อัปเดตเวลาเปิด–ปิดเขาล้อมหมวกและงานถนนคนเดิน</li>
+            <li>รวมพิกัดของกินพื้นถิ่นและของฝากราคาหน้าชุมชน</li>
+          </ul>
+        </div>
+        <p style="margin: 18px 0 0 0; font-size: 12.5px; color: #145D6E; font-weight: bold;">ระบบสมาชิกเว็บไซต์ทางธุรกิจเพื่อการท่องเที่ยวชุมชน</p>
+      </div>
+
+      <!-- ฝั่งขวา: ฟอร์มเข้าสู่ระบบ / สมัครสมาชิก / โปรไฟล์เมื่อล็อกอินแล้ว -->
+      <div class="login-form-box">
+        <!-- แสดงเมื่อเข้าสู่ระบบสำเร็จแล้ว -->
+        <div id="loggedInPanel" style="display: none; text-align: center; padding: 20px 10px;">
+          <div style="width: 72px; height: 72px; margin: 0 auto 14px auto; border-radius: 50%; background: linear-gradient(135deg, #D4EFFA 0%, #D5F5E7 100%); border: 3px solid #7FD3C6; display: flex; align-items: center; justify-content: center; font-size: 30px; color: #145D6E; font-weight: bold;" id="userAvatar">
+            ส
+          </div>
+          <h2 style="color: #145D6E; margin: 0 0 6px 0;">สวัสดีคุณ <span id="displayUsername">สมาชิก</span></h2>
+          <p style="color: #4C6E78; margin: 0 0 20px 0;">สถานะ: เข้าสู่ระบบเรียบร้อยแล้ว พร้อมออกเดินทางเที่ยวประจวบคีรีขันธ์!</p>
+          <div style="display: flex; flex-direction: column; gap: 10px; max-width: 280px; margin: 0 auto;">
+            <a class="button" href="index.html" style="margin-top: 0;">ไปยังหน้าแรกเว็บไซต์</a>
+            <a class="button button-outline" href="plan.html" style="margin-top: 0;">ดูแผนเที่ยวหนึ่งวัน</a>
+            <button type="button" class="button button-outline" style="border-color: #D9534F; color: #B42318; margin-top: 8px;" onclick="handleLogout()">ออกจากระบบ</button>
+          </div>
+        </div>
+
+        <!-- แสดงเมื่อยังไม่ได้เข้าสู่ระบบ -->
+        <div id="authFormsWrap">
+          <div class="auth-tabs">
+            <button type="button" class="auth-tab active" id="tabLoginBtn" onclick="switchAuthTab('login')">เข้าสู่ระบบ</button>
+            <button type="button" class="auth-tab" id="tabRegBtn" onclick="switchAuthTab('register')">สมัครสมาชิก</button>
+          </div>
+
+          <div id="authAlert" class="alert-msg" role="alert"></div>
+
+          <!-- ฟอร์มเข้าสู่ระบบ -->
+          <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label for="loginUsername">ชื่อผู้ใช้งาน หรือ อีเมล</label>
+              <input type="text" id="loginUsername" class="form-control" placeholder="กรอกชื่อผู้ใช้งาน เช่น student" required>
+            </div>
+
+            <div class="form-group">
+              <label for="loginPassword">รหัสผ่าน</label>
+              <div class="input-wrap">
+                <input type="password" id="loginPassword" class="form-control" placeholder="กรอกรหัสผ่าน" style="padding-right: 68px;" required>
+                <button type="button" class="toggle-pass-btn" onclick="togglePassword('loginPassword', this)">แสดง</button>
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                <input type="checkbox" id="rememberMe" checked style="accent-color: #36A6BA;"> จดจำฉันไว้ในระบบ
+              </label>
+              <a href="#" onclick="forgotPasswordHint(event)" style="color: #238294; text-decoration: none; font-weight: bold;">ลืมรหัสผ่าน?</a>
+            </div>
+
+            <button type="submit" class="button" style="width: 100%; margin-top: 4px;">เข้าสู่ระบบ</button>
+
+            <div class="demo-box">
+              <div>
+                <strong>บัญชีทดสอบระบบ:</strong> ผู้ใช้ <code>student</code> | รหัสผ่าน <code>1234</code>
+              </div>
+              <button type="button" class="demo-fill-btn" onclick="fillDemoAccount()">คลิกกรอกอัตโนมัติ</button>
+            </div>
+          </form>
+
+          <!-- ฟอร์มสมัครสมาชิกใหม่ -->
+          <form id="registerForm" style="display: none;" onsubmit="handleRegister(event)">
+            <div class="form-group">
+              <label for="regFullname">ชื่อ – นามสกุล</label>
+              <input type="text" id="regFullname" class="form-control" placeholder="เช่น สุชานาถ ยังกิจการ" required>
+            </div>
+
+            <div class="form-group">
+              <label for="regUsername">ตั้งชื่อผู้ใช้งาน (Username)</label>
+              <input type="text" id="regUsername" class="form-control" placeholder="ภาษาอังกฤษหรือตัวเลข อย่างน้อย 3 ตัวอักษร" minlength="3" required>
+            </div>
+
+            <div class="form-group">
+              <label for="regPassword">ตั้งรหัสผ่าน</label>
+              <div class="input-wrap">
+                <input type="password" id="regPassword" class="form-control" placeholder="อย่างน้อย 4 ตัวอักษร" minlength="4" style="padding-right: 68px;" required>
+                <button type="button" class="toggle-pass-btn" onclick="togglePassword('regPassword', this)">แสดง</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regConfirm">ยืนยันรหัสผ่านอีกครั้ง</label>
+              <input type="password" id="regConfirm" class="form-control" placeholder="กรอกรหัสผ่านซ้ำอีกครั้ง" minlength="4" required>
+            </div>
+
+            <button type="submit" class="button" style="width: 100%; margin-top: 4px;">ยืนยันการสมัครสมาชิก</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>034 สุชานาถ ยังกิจการ | ใบงานฝึกปฏิบัติวิชาการสร้างเว็บไซต์ทางธุรกิจ</p>
+    <p class="footer-sub">เว็บไซต์ส่งเสริมการท่องเที่ยวชุมชน "เที่ยวบ้านเราในหนึ่งวัน" จังหวัดประจวบคีรีขันธ์</p>
+  </footer>
+
+  <script>
+    let memoryUsers = {
+      "student": { pass: "1234", name: "สุชานาถ ยังกิจการ" },
+      "admin": { pass: "1234", name: "ผู้ดูแลระบบเที่ยวบ้านเรา" }
+    };
+    let memoryCurrentUser = null;
+
+    function getSavedUsers() {
+      try {
+        const raw = localStorage.getItem("travelUsersDB_034");
+        if (raw) {
+          return Object.assign({}, memoryUsers, JSON.parse(raw));
+        }
+      } catch (e) {}
+      return memoryUsers;
+    }
+
+    function saveUserRecord(username, pass, name) {
+      const db = getSavedUsers();
+      db[username] = { pass: pass, name: name };
+      memoryUsers = db;
+      try {
+        localStorage.setItem("travelUsersDB_034", JSON.stringify(db));
+      } catch (e) {}
+    }
+
+    function getCurrentUser() {
+      try {
+        return localStorage.getItem("travelCurrentUser_034") || memoryCurrentUser;
+      } catch (e) {
+        return memoryCurrentUser;
+      }
+    }
+
+    function setCurrentUser(username) {
+      memoryCurrentUser = username;
+      try {
+        if (username) {
+          localStorage.setItem("travelCurrentUser_034", username);
+        } else {
+          localStorage.removeItem("travelCurrentUser_034");
+        }
+      } catch (e) {}
+    }
+
+    function showAlert(msg, type) {
+      const box = document.getElementById("authAlert");
+      box.textContent = msg;
+      box.className = "alert-msg " + type;
+    }
+
+    function clearAlert() {
+      const box = document.getElementById("authAlert");
+      box.textContent = "";
+      box.className = "alert-msg";
+    }
+
+    function switchAuthTab(mode) {
+      clearAlert();
+      const loginForm = document.getElementById("loginForm");
+      const regForm = document.getElementById("registerForm");
+      const tabLoginBtn = document.getElementById("tabLoginBtn");
+      const tabRegBtn = document.getElementById("tabRegBtn");
+
+      if (mode === "login") {
+        loginForm.style.display = "block";
+        regForm.style.display = "none";
+        tabLoginBtn.classList.add("active");
+        tabRegBtn.classList.remove("active");
+      } else {
+        loginForm.style.display = "none";
+        regForm.style.display = "block";
+        tabLoginBtn.classList.remove("active");
+        tabRegBtn.classList.add("active");
+      }
+    }
+
+    function togglePassword(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (input.type === "password") {
+        input.type = "text";
+        btn.textContent = "ซ่อน";
+      } else {
+        input.type = "password";
+        btn.textContent = "แสดง";
+      }
+    }
+
+    function fillDemoAccount() {
+      document.getElementById("loginUsername").value = "student";
+      document.getElementById("loginPassword").value = "1234";
+      showAlert("กรอกบัญชีทดสอบเรียบร้อย กดปุ่ม 'เข้าสู่ระบบ' ได้เลย!", "success");
+    }
+
+    function forgotPasswordHint(e) {
+      e.preventDefault();
+      showAlert("สำหรับทดสอบระบบ สามารถใช้ชื่อผู้ใช้ 'student' และรหัสผ่าน '1234' หรือสมัครสมาชิกใหม่ได้ที่แถบด้านบน", "success");
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById("loginUsername").value.trim();
+      const pass = document.getElementById("loginPassword").value;
+      const db = getSavedUsers();
+
+      if (db[user] && db[user].pass === pass) {
+        const displayName = db[user].name || user;
+        setCurrentUser(displayName);
+        showAlert("เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับคุณ " + displayName + " กำลังพาไปหน้าสมาชิก...", "success");
+        setTimeout(function () {
+          renderAuthState();
+        }, 700);
+      } else {
+        showAlert("ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง (หรือกดปุ่มกรอกบัญชีทดสอบ)", "error");
+      }
+    }
+
+    function handleRegister(e) {
+      e.preventDefault();
+      const fullname = document.getElementById("regFullname").value.trim();
+      const username = document.getElementById("regUsername").value.trim();
+      const pass = document.getElementById("regPassword").value;
+      const confirm = document.getElementById("regConfirm").value;
+
+      if (pass !== confirm) {
+        showAlert("รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน กรุณาตรวจสอบอีกครั้ง", "error");
+        return;
+      }
+
+      const db = getSavedUsers();
+      if (db[username]) {
+        showAlert("ชื่อผู้ใช้งาน '" + username + "' มีอยู่ในระบบแล้ว กรุณาใช้ชื่ออื่น", "error");
+        return;
+      }
+
+      saveUserRecord(username, pass, fullname);
+      setCurrentUser(fullname);
+      showAlert("สมัครสมาชิกสำเร็จ! ยินดีต้อนรับคุณ " + fullname, "success");
+      setTimeout(function () {
+        renderAuthState();
+      }, 800);
+    }
+
+    function handleLogout() {
+      setCurrentUser(null);
+      document.getElementById("loginPassword").value = "";
+      renderAuthState();
+      showAlert("ออกจากระบบเรียบร้อยแล้ว", "success");
+    }
+
+    function renderAuthState() {
+      const currentUser = getCurrentUser();
+      const loggedInPanel = document.getElementById("loggedInPanel");
+      const authFormsWrap = document.getElementById("authFormsWrap");
+      const navLink = document.getElementById("navLoginLink");
+
+      if (currentUser) {
+        loggedInPanel.style.display = "block";
+        authFormsWrap.style.display = "none";
+        document.getElementById("displayUsername").textContent = currentUser;
+        document.getElementById("userAvatar").textContent = currentUser.charAt(0).toUpperCase();
+        if (navLink) navLink.textContent = "บัญชี: " + currentUser;
+      } else {
+        loggedInPanel.style.display = "none";
+        authFormsWrap.style.display = "block";
+        if (navLink) navLink.textContent = "เข้าสู่ระบบ";
+      }
+    }
+
+    renderAuthState();
+  </script>
+</body>
+</html>
